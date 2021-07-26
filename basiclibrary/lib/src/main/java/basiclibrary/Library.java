@@ -26,7 +26,7 @@ public class Library {
                 }
             }
         }
-        return true;
+        return false;
     }
     public static  double averages(int []arr){
         int sum =0;
@@ -75,8 +75,8 @@ int []newArr =new int[arr[index].length];
             System.out.println(i);
         }
 
-        int duplictArr[]={1,2,1,3,4,5,4};
-        System.out.println(containsDuplicates(duplictArr));
+        int duplictArr[]={1,2,3,14,3,4,5};
+        System.out.println("Duplicate: "+containsDuplicates(duplictArr));
 int mark[]={55,88,90,89,77,90};
         System.out.println("The AVG :" + averages(mark));
 
