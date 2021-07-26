@@ -69,16 +69,16 @@ int []newArr =new int[arr[index].length];
     public static void main(String[] args) {
 
 
-//       int arr[]= roll(4);
-//
-//        for (int i : arr) {
-//            System.out.println(i);
-//        }
-//
-//        int duplictArr[]={1,2,1,3,4,5,4};
-//        System.out.println(containsDuplicates(duplictArr));
-//int mark[]={55,88,90,89,77,90};
-//        System.out.println("The AVG :" + averages(mark));
+       int arr[]= roll(4);
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
+
+        int duplictArr[]={1,2,1,3,4,5,4};
+        System.out.println(containsDuplicates(duplictArr));
+int mark[]={55,88,90,89,77,90};
+        System.out.println("The AVG :" + averages(mark));
 
         // Daily average temperatures for Seattle, October 1-28 2017
         int[][] weeklyMonthTemperatures = {
