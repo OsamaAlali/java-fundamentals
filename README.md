@@ -1,7 +1,15 @@
 # java-fundamentals
 java-fundamentals
 
+## lab 3
 
+ - Create method Maps
+
+ - Create method Contains tally
+
+ - Create method check
+
+   time you spent on this assignment: 7h
 ## lab2 
  
  - Create method roll
