@@ -3,6 +3,7 @@
  */
 package basiclibrary;
 
+import java.util.*;
 import java.util.Random;
 
 public class Library {
@@ -66,6 +67,73 @@ int []newArr =new int[arr[index].length];
     }
    return newArr;
 }// end Function
+
+    public static String maps(int [][]arr){
+
+            int high=0 ;
+            int min=0;
+            Set <Integer> set=new HashSet<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                set.add(arr[i][j]);
+            }
+        }
+        for (Integer i : set) {
+         if (high==0 && min==0){
+             high=i;
+             min=i;
+         }else if(i>high){
+             high=i;
+         }else if (i<min){
+             min =i;
+         }
+        }
+        System.out.println("high: " + high);
+        System.out.println("min: "+ min);
+        for (int i = min+1; i < high; i++) {
+            if (!set.contains(i)){
+                System.out.println("Never saw temperature: " +i);
+            }
+        }
+         return "high:"+String.valueOf(high) + " min: "+ String.valueOf(min);
+    }
+
+    public static String tally(List<String> arr){
+            int count=1;
+            String highVoteName="";
+           Map<String,Integer> vot=new HashMap<String,Integer>();
+        for (String name : arr) {
+             if (!vot.keySet().contains(name)){
+                 vot.put(name,1);
+             }else {
+
+                 count =  (int)vot.get(name);
+                 count++;
+                 vot.put(name,count);
+
+             }
+        }
+            count=0;
+
+        for(String i: vot.keySet())
+        {
+            System.out.println(i +"  "+ vot.get(i));
+        } // this for for testing
+              for (String s:vot.keySet())
+              {
+                  if (vot.get(s) > count){
+                      count=vot.get(s);
+                      highVoteName=s;
+                  }
+
+              }
+
+            return highVoteName;
+    }
+
+
+    ////////////////////////Main Method /////////////
+    ///////////////////////-------------////////////
     public static void main(String[] args) {
 
 
@@ -86,14 +154,30 @@ int mark[]={55,88,90,89,77,90};
                 {57, 65, 65, 70, 72, 65, 51},
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57},
-                {14, 65, 76, 44, 32, 45, 65}
+
         };
+        String high;
+      high=maps(weeklyMonthTemperatures);
+        System.out.println(high);
 
+//       int []newArray= lowAvg(weeklyMonthTemperatures);
+//        for (int i : newArray) {
+//            System.out.println(i);
+//        }
 
-       int []newArray= lowAvg(weeklyMonthTemperatures);
-        for (int i : newArray) {
-            System.out.println(i);
-        }
+            List<String> votes =new ArrayList<String>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner= tally(votes);
+        System.out.println(winner + " #####received the most votes!");
 
     }
 
