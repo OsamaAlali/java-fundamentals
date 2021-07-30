@@ -10,14 +10,40 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-//    @Test void appHasAGreeting() {
-//        App classUnderTest = new App();
-//        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-//    }
-    @Test public void check(){
-        String link="./src/test/resources/test.text";
 
-        String exp=" Line 1: Missing semicolon.\n";
+//    @Test public void noErr(){
+//        String link="./src/main/resources/error.js";
+//
+//        String exp="";
+//        assertEquals(exp,App.check(link));
+//    }
+
+    @Test public void oneErr(){
+        String link="./src/main/resources/one.js";
+
+        String exp="Line 3: Missing semicolon.";
+        System.out.println(App.check(link));
+       assertEquals(exp,App.check(link),"nottttt");
+
+
+    }
+
+    @Test public void fewErr(){
+        String link="./src/main/resources/few.js";
+
+        String e="Line 3: Missing semicolon.\nLine 5: Missing semicolon.";
+assertEquals(e,App.check(link));
+    }
+    @Test public void manyErr(){
+        String link="./src/main/resources/many.js";
+
+        String ex="Line 1: Missing semicolon.\nLine 3: Missing semicolon.\nLine 5: Missing semicolon.";
+        assertEquals(ex,App.check(link));
+    }
+
+    @Test public void empty(){
+        String link="./src/main/resources/empty.js";
+        String exp="File is Empty";
         assertEquals(exp,App.check(link));
     }
 }
