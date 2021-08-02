@@ -1,59 +1,54 @@
 package inheritance;
 import java.lang.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Restaurant {
-String name="";
-int rate=0;
-String dollar="";
-static int count=0;
-int sum=0;
-Review review;
+String name;
 
-     Restaurant(String name, int dollar) {
-          review=new Review();
-        this.name = name;
-        this.dollar = String.valueOf(dollar)+"$";
+    int stars;
+   int priceCategory;
+   Set<Review> review;
+
+
+
+
+
+
+     Restaurant(String name, int priceCategory) {
+
+         this.name = name;
+         this.priceCategory = priceCategory;
+         this.review = new HashSet<Review>();
+     }
+
+    public void setStars(int stars) {
+        this.stars = stars;
     }
 
-    public String getName() {
-        return name;
+public  void addReview(Review review1) {
+int sum =0;
+
+        review.add(review1);
+    for (Review i : review) {
+        sum = sum + i.rate;
+    }
+   setStars((sum/review.size()));
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        count++;
-        review.setRate(rate);
-         sum +=  review.getRate()  ;
-     this.rate = sum/count;
-    }
-
-    public String getDollar() {
-        return dollar;
-    }
-
-    public void setDollar(int dollar) {
-        this.dollar = String.valueOf(dollar);
-    }
-
-
-public  void addReview(int rate,String author,String body){
-    review.setBody(body);
-    review.setAuthor(author);
-    setRate(rate);
-    }
     @Override
     public String toString() {
+         String dollar="";
+        for (int i = 0; i < priceCategory; i++) {
+            dollar +="$";
+        }
         return "Restaurant{" +
                 "name='" + name + '\'' +
-                ", rate=" + rate +
-                ", dollar='" + dollar + '\'' + review.toString() +
+                ", stars=" + stars +
+                ", dollar='" + dollar + '\'' +
+                ", review=" + review +
 
                 '}';
     }

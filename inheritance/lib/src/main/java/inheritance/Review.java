@@ -2,37 +2,18 @@ package inheritance;
 
 public class Review {
 
-    String body="";
-    String author="";
+    String body;
+    String author;
     int rate;
-Review(){
 
-}
     public Review(String body, String author, int rate) {
+        if (rate>=1 && rate <=5){
         this.body = body;
         this.author = author;
         this.rate = rate;
+        }
     }
 
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getRate() {
-        return rate;
-    }
 
     public void setRate(int rate) {
        if (rate >=1 && rate <= 5)
