@@ -11,5 +11,32 @@ class LibraryTest {
 //        Library classUnderTest = new Library();
 //        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
 //    }
+@Test public void RestaurantToString() {
+    // the instance
+    Restaurant res = new Restaurant("ASC", 3);
+    // output must be :
+    String out = "Restaurant{name='ASC', stars=0, dollar='$$$', review=[]}";
+
+    assertEquals(out, res.toString());
+}
+    @Test public void ReviewToString(){
+        // the instances
+        Review rev1 = new Review("best","osama",3);
+        // output must be :
+        String out =  "Review{body='best', author='osama', rate=3}";
+
+        assertEquals(out,rev1.toString());
+    }
+    @Test public void AddReview(){
+        // the instance
+        Restaurant res = new Restaurant("AWQ",3);
+        Review rev1 = new Review("best","osama",2);
+        res.addReview(rev1);
+        // output must be :
+        String out =  "Restaurant{name='AWQ', stars=2, dollar='$$$', review=[Review{body='best', author='osama', rate=2}]}";
+
+        assertEquals(out,res.toString());
+    }
+
 
 }
