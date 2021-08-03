@@ -13,7 +13,7 @@ public class App {
         return "Hello World!";
     }
 
- public static String check(String link){
+ public  String check(String link){
 
         String error="";
      int lineCount=0;
@@ -26,7 +26,7 @@ public class App {
          if ( line.isBlank() ||(line.endsWith("{")) || line.endsWith("}") || line.contains("else") ||line.contains("if") || line.endsWith(";") ){
 
              }else {
-             error +=" Line "+String.valueOf(lineCount)+": Missing semicolon.\n";
+             error +=" Line "+ lineCount +": Missing semicolon.\n";
                  }
              }
          }else {
@@ -42,8 +42,8 @@ public class App {
     public static void main(String[] args) {
   String path=".\\app\\src\\main\\resources\\gates.js";
 //          "resources\\gates.js";
-
-        String error=  check(path);
+App app=new App();
+        String error=  app.check(path);
         System.out.println(error);
     }
 }

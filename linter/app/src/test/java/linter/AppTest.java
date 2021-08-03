@@ -5,45 +5,45 @@ package linter;
 
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Path;
+import java.nio.file.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+public class AppTest {
+    App app=new App();
+    @Test public void noErr(){
+        String link="./src/main/resources/error.js";
 
-//    @Test public void noErr(){
-//        String link="./src/main/resources/error.js";
+        String exp="";
+        assertEquals(exp,app.check(link));
+    }
+
+    @Test public void check(){
+        String link="./src/main/resources/one.js";
+App app=new App();
+        String exp="Line 3: Missing semicolon.";
+//        System.out.println(app.check(link));
+      assertEquals(exp,app.check(link),"nottttt");
+
+
+    }
+
+//    @Test public void fewErr(){
+//        String link="./src/main/resources/few.js";
 //
-//        String exp="";
+//        String e="Line 3: Missing semicolon.\nLine 5: Missing semicolon.";
+//assertEquals(e,App.check(link));
+//    }
+//    @Test public void manyErr(){
+//        String link="./src/main/resources/many.js";
+//
+//        String ex="Line 1: Missing semicolon.\nLine 3: Missing semicolon.\nLine 5: Missing semicolon.";
+//        assertEquals(ex,App.check(link));
+//    }
+//
+//    @Test public void empty(){
+//        String link="./src/main/resources/empty.js";
+//        String exp="File is Empty";
 //        assertEquals(exp,App.check(link));
 //    }
-
-    @Test public void oneErr(){
-        String link="./src/main/resources/one.js";
-
-        String exp="Line 3: Missing semicolon.";
-        System.out.println(App.check(link));
-       assertEquals(exp,App.check(link),"nottttt");
-
-
-    }
-
-    @Test public void fewErr(){
-        String link="./src/main/resources/few.js";
-
-        String e="Line 3: Missing semicolon.\nLine 5: Missing semicolon.";
-assertEquals(e,App.check(link));
-    }
-    @Test public void manyErr(){
-        String link="./src/main/resources/many.js";
-
-        String ex="Line 1: Missing semicolon.\nLine 3: Missing semicolon.\nLine 5: Missing semicolon.";
-        assertEquals(ex,App.check(link));
-    }
-
-    @Test public void empty(){
-        String link="./src/main/resources/empty.js";
-        String exp="File is Empty";
-        assertEquals(exp,App.check(link));
-    }
 }

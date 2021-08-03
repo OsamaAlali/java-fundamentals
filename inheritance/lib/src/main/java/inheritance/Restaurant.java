@@ -5,17 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Restaurant {
+public class Restaurant implements  Zelp{
 String name;
-
     int stars;
    int priceCategory;
    Set<Review> review;
-
-
-
-
-
 
      Restaurant(String name, int priceCategory) {
 
@@ -28,8 +22,9 @@ String name;
         this.stars = stars;
     }
 
-public  void addReview(Review review1) {
-int sum =0;
+    @Override
+    public void addReview(Review review1) {
+        int sum =0;
 
         review.add(review1);
     for (Review i : review) {
@@ -37,6 +32,16 @@ int sum =0;
     }
    setStars((sum/review.size()));
     }
+
+    //public  void addReview(Review review1) {
+//          int sum =0;
+//
+//        review.add(review1);
+//    for (Review i : review) {
+//        sum = sum + i.rate;
+//    }
+//   setStars((sum/review.size()));
+//    }
 
     @Override
     public String toString() {
