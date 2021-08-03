@@ -1,7 +1,7 @@
 package inheritance;
 
 public class Review {
-
+String moive;
     String body;
     String author;
     int rate;
@@ -12,8 +12,17 @@ public class Review {
         this.author = author;
         this.rate = rate;
         }
-    }
 
+    }
+    public Review(String body, String author, int rate,String moive) {
+        if (rate>=1 && rate <=5){
+            this.body = body;
+            this.author = author;
+            this.rate = rate;
+             this.moive=moive;
+        }
+
+    }
 
     public void setRate(int rate) {
        if (rate >=1 && rate <= 5)
@@ -23,10 +32,21 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review{" +
-                "body='" + body + '\'' +
-                ", author='" + author + '\'' +
-                ", rate=" + rate +
-                '}';
+        if (moive == null){
+            return
+                    "{ body='" + body + '\'' +
+                    ", author='" + author + '\'' +
+                    ", rate=" + rate +
+                    '}';
+        }else{
+            return "{" +
+                    "body='" + body + '\'' +
+                    ", author='" + author + '\'' +
+                    ", movie='" + moive + '\'' +
+                    ", rate=" + rate +
+                    '}';
+
+        }
+
     }
 }

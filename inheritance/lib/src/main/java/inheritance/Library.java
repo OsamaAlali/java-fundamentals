@@ -14,25 +14,30 @@ public class Library {
     public static void main(String[] args) {
 
 
-           Restaurant r=new Restaurant("osama",5);
+//           Restaurant r=new Restaurant("osama",5);
+          Shop s=new Shop("osama","Best Shop");
         try {
-        System.out.println(r.toString());
+//        System.out.println(r.toString());
 Review m=new Review("compsit","osama",2);
-            r.addReview(m);
+//            r.addReview(m);
             Review m1=new Review("compsit","osama",2);
-            Review m2=new Review("compsit","osama",2);
-r.addReview(m1);
-r.addReview(m2);
-            System.out.println(r.toString());
-            Review mo=new Review("test","osama",2);
-            r.addReview(m);
-            Review m5=new Review("Test2","osama",2);
-            Review m6=new Review("Test3","Aliya",2);
+            Review m2=new Review("compsit","osama",2,"osamaaaaa");
+//r.addReview(m1);
+//r.addReview(m2);
+            s.addReview(m1);
+            s.addReview(m2);
+            System.out.println(s.toString());
+//            System.out.println(r.toString());
+//            Review mo=new Review("test","osama",2);
+//            r.addReview(m);
+//            Review m5=new Review("Test2","osama",2);
+//            Review m6=new Review("Test3","Aliya",2);
+//
+//            Restaurant r2=new Restaurant("ahmad",3);
+//         r2.addReview(m5);
+//         r2.addReview(m6);
 
-            Restaurant r2=new Restaurant("ahmad",3);
-         r2.addReview(m5);
-         r2.addReview(m6);
-            System.out.println("R2"+r2.toString());
+//            System.out.println("R2"+r2.toString());
         }catch (Exception e){
               e.printStackTrace();
           }

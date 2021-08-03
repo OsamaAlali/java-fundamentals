@@ -7,36 +7,79 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-//    @Test void someLibraryMethodReturnsTrue() {
+    //    @Test void someLibraryMethodReturnsTrue() {
 //        Library classUnderTest = new Library();
 //        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
 //    }
-@Test public void RestaurantToString() {
-    // the instance
-    Restaurant res = new Restaurant("ASC", 3);
-    // output must be :
-    String out = "Restaurant{name='ASC', stars=0, dollar='$$$', review=[]}";
-
-    assertEquals(out, res.toString());
-}
-    @Test public void ReviewToString(){
-        // the instances
-        Review rev1 = new Review("best","osama",3);
-        // output must be :
-        String out =  "Review{body='best', author='osama', rate=3}";
-
-        assertEquals(out,rev1.toString());
-    }
-    @Test public void AddReview(){
+    @Test
+    public void RestaurantToString() {
         // the instance
-        Restaurant res = new Restaurant("AWQ",3);
-        Review rev1 = new Review("best","osama",2);
+        Restaurant res = new Restaurant("ASC", 3);
+        // output must be :
+        String out = "Restaurant{name='ASC', stars=0, dollar='$$$', review=[]}";
+
+        assertEquals(out, res.toString());
+    }
+
+    @Test
+    public void ReviewToString() {
+        // the instances
+        Review rev1 = new Review("best", "osama", 3);
+        // output must be :
+        String out = "{ body='best', author='osama', rate=3}";
+
+        assertEquals(out, rev1.toString());
+    }
+
+    @Test
+    public void AddReview() {
+        // the instance
+        Restaurant res = new Restaurant("AWQ", 3);
+        Review rev1 = new Review("best", "osama", 2);
         res.addReview(rev1);
         // output must be :
-        String out =  "Restaurant{name='AWQ', stars=2, dollar='$$$', review=[Review{body='best', author='osama', rate=2}]}";
+        String out = "Restaurant{name='AWQ', stars=2, dollar='$$$', review=[Review{body='best', author='osama', rate=2}]}";
 
-        assertEquals(out,res.toString());
+        assertEquals(out, res.toString());
+    }
+
+    @Test
+    public void shopToString() {
+        Shop s = new Shop("ATEM", "Action");
+        String out = "Shop{name='ATEM', description='Action', dollar='', review=[]}";
+        assertEquals(out, s.toString());
+    }
+
+    @Test
+    public void addShopToString() {
+        Shop s = new Shop("ATEM", "Action");
+        Review r = new Review("nice", "NIKE", 4);
+        s.addReview(r);
+
+        String out = "Shop{name='ATEM', description='Action', dollar='$$$$', review=[{ body='nice', author='NIKE', rate=4}]}";
+        assertEquals(out, s.toString());
+    }
+
+    @Test
+    public void theaterToString() {
+        Theater t = new Theater("ATem");
+//        Review r=new Review("nice","NIKE",4);
+//        s.addReview(r);
+
+        String out = "Theater{name='ATem', moive=[], review=[]}";
+        assertEquals(out, t.toString());
     }
 
 
+
+    @Test public void ToString() {
+        Theater t = new Theater("ATem");
+   Review r=new Review("nice","NIKE",4,"Ninja");
+     t.addReview(r);
+t.addMovie("ATEM");
+t.addMovie("ASD");
+t.addMovie("QWE");
+        String out = "Theater{name='ATem', moive=[ASD, ATEM, QWE], review=[{body='nice', author='NIKE', movie='Ninja', rate=4}]}";
+        assertEquals(out, t.toString());
+    }
 }
